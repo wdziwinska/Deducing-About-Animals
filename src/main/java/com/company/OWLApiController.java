@@ -9,7 +9,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import java.io.File;
 import java.util.*;
 
-public abstract class OWLApiController {
+public class OWLApiController {
 
     OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
     OWLOntology owlOntology = null;
@@ -101,6 +101,8 @@ public abstract class OWLApiController {
         return values;
     }
 
+
+    // Zwraca informacje o wszystkich objectProperty dla konkretnego indiwiduum, np dla lwa
     public HashMap<String,ArrayList<String>> getAllObjectPropertiesAboutIndividual(String individual){
         HashMap<String, ArrayList<String>> allProperties = new HashMap<String,ArrayList<String>>();
 
@@ -109,7 +111,7 @@ public abstract class OWLApiController {
         Properties properties;
 
         // Get all objectProperties in ontology
-        collection = owlOntology.getClassesInSignature();
+        //collection = owlOntology.getClassesInSignature();
         Collection<OWLObjectProperty> owlObjectProperties = owlOntology.getObjectPropertiesInSignature();
 
         // For each existing property
@@ -130,6 +132,13 @@ public abstract class OWLApiController {
 //        System.out.println("Poza petla: ");
 //        System.out.println(allProperties);
         return allProperties;
+    }
+
+
+    public void getListOfSubclasses(String klasa){
+        ArrayList<String> subclasses = new ArrayList<String>();
+
+
     }
 
     // Z internetu, wypisuje property ktore musi miec dana klasa
@@ -164,5 +173,7 @@ public abstract class OWLApiController {
     }
 
 
-    public abstract void initialize();
+    public void initialize() {
+
+    }
 }
