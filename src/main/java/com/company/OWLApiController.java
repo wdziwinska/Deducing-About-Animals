@@ -156,6 +156,21 @@ public class OWLApiController {
         return classes;
     }
 
+    public String getSpeciesOfIndividual(String individual){
+        ArrayList<String> classes = getClassesOfIndividual(individual);
+
+        for (String c : classes){
+            NodeSet<OWLClass> superclasses = owlReasoner.getSuperClasses(getOntologyClass(c),false);
+            for (OWLClass sc : superclasses.getFlattened()){
+                if (Objects.equals(sc.getIRI().getFragment(), "Gatunek")){
+                    return c;
+                }
+            }
+        }
+        return "ERROR";
+
+    }
+
     // Z internetu, wypisuje property ktore musi miec dana klasa
     public void test(){
         printProperties(ontologyManager,owlOntology,owlReasoner,getOntologyClass("Ssak"));

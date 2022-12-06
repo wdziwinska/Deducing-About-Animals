@@ -44,6 +44,9 @@ public class MainController implements Initializable {
     private ListView polowanyPrzezListView;
 
     @FXML
+    private Label gatunekLabel;
+
+    @FXML
     private CheckBox chbWlosy;
 
     @FXML
@@ -117,6 +120,7 @@ public class MainController implements Initializable {
 
         String chosenAnimal = (String) animalsListView.getSelectionModel().getSelectedItem();
         HashMap<String,ArrayList<String>> infoAboutChosenAnimal = ontology.getAllObjectPropertiesAboutIndividual(chosenAnimal);
+        gatunekLabel.setText("Gatunek: " + ontology.getSpeciesOfIndividual(chosenAnimal));
         if (infoAboutChosenAnimal.get("posiadaZernosc")!=null){
             zernoscListView.getItems().addAll(infoAboutChosenAnimal.get("posiadaZernosc"));
         }

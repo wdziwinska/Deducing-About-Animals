@@ -13,7 +13,7 @@ public class Test {
         owl.readOntologyFile();
 
         //System.out.println("Gatunki zwierzat:" + owl.getListOfSubclasses("Gatunek"));
-        owl.getClassesOfIndividual("lew");
+        owl.getSpeciesOfIndividual("orzel");
 
     }
 }

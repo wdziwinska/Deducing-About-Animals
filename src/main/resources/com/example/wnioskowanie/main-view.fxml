@@ -161,6 +161,7 @@
         <Button fx:id="btnWyszukajCheckBox" layoutX="791.0" layoutY="389.0" mnemonicParsing="false" onAction="#onbtnWyszukajCheckBoxClick" text="wyszukaj" />
       <VBox layoutX="31.0" layoutY="379.0" prefHeight="267.0" prefWidth="219.0">
          <children>
+            <Label fx:id="gatunekLabel" prefHeight="24.0" prefWidth="280.0" text="Gatunek" />
             <Label fx:id="zernoscLabel" prefHeight="19.0" prefWidth="54.0" text="Zernosc" />
             <ListView fx:id="zernoscListView" prefHeight="35.0" prefWidth="219.0" />
             <Label fx:id="srodowiskoLabel" prefHeight="19.0" prefWidth="140.0" text="Srodowisko" />
