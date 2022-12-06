@@ -32,6 +32,18 @@ public class MainController implements Initializable {
     private ListView animalsBySpeciesListView;
 
     @FXML
+    private ListView zernoscListView;
+
+    @FXML
+    private ListView srodowiskoListView;
+
+    @FXML
+    private ListView polujeNaListView;
+
+    @FXML
+    private ListView polowanyPrzezListView;
+
+    @FXML
     private CheckBox chbWlosy;
 
     @FXML
@@ -98,10 +110,31 @@ public class MainController implements Initializable {
     }
 
     public void onAnimalsListViewClicked(){
+        zernoscListView.getItems().clear();
+        srodowiskoListView.getItems().clear();
+        polujeNaListView.getItems().clear();
+        polowanyPrzezListView.getItems().clear();
+
         String chosenAnimal = (String) animalsListView.getSelectionModel().getSelectedItem();
-        System.out.println(chosenAnimal);
         HashMap<String,ArrayList<String>> infoAboutChosenAnimal = ontology.getAllObjectPropertiesAboutIndividual(chosenAnimal);
-        System.out.println(infoAboutChosenAnimal);
+        if (infoAboutChosenAnimal.get("posiadaZernosc")!=null){
+            zernoscListView.getItems().addAll(infoAboutChosenAnimal.get("posiadaZernosc"));
+        }
+        if (infoAboutChosenAnimal.get("posiadaSrodowisko")!=null){
+            srodowiskoListView.getItems().addAll(infoAboutChosenAnimal.get("posiadaSrodowisko"));
+        }
+        if (infoAboutChosenAnimal.get("polujeNa")!=null){
+            polujeNaListView.getItems().addAll(infoAboutChosenAnimal.get("polujeNa"));
+        }
+        if (infoAboutChosenAnimal.get("polowanyPrzez")!=null){
+            polowanyPrzezListView.getItems().addAll(infoAboutChosenAnimal.get("polowanyPrzez"));
+        }
+
+
+
+
+
+
     }
 
 //    private void animalsListViewData() throws OWLOntologyCreationException {

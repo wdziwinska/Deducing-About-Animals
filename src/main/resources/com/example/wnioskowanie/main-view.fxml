@@ -12,20 +12,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wnioskowanie.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wnioskowanie.MainController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="2.0" prefHeight="35.0" prefWidth="848.0" text="Wnioskownie o zwierzętach" textAlignment="CENTER" textOverrun="CLIP">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
         </Label>
-        <VBox layoutX="52.0" layoutY="102.0" prefHeight="359.0" prefWidth="219.0">
+        <VBox layoutX="31.0" layoutY="30.0" prefHeight="359.0" prefWidth="219.0">
             <children>
-                <ScrollPane>
-                    <content>
-                        <ListView fx:id="animalsListView" onMouseClicked="#onAnimalsListViewClicked" prefHeight="347.0" prefWidth="219.0" />
-                    </content>
-                </ScrollPane>
+                  <ListView fx:id="animalsListView" onMouseClicked="#onAnimalsListViewClicked" prefHeight="347.0" prefWidth="219.0" />
                 <Label fx:id="infoAboutAnimals" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="190.0" text="Informacje o wybranym zwierzęciu" />
             </children>
         </VBox>
@@ -163,5 +159,17 @@
         <Label alignment="CENTER" layoutX="281.0" layoutY="263.0" prefHeight="22.0" prefWidth="471.0" text="wybierz cechy charakterystyczne" />
         <Button fx:id="btnWyszukajChoiceBox" layoutX="791.0" layoutY="150.0" mnemonicParsing="false" onAction="#onBtnWyszukajChoiceBoxClick" text="wyszukaj" />
         <Button fx:id="btnWyszukajCheckBox" layoutX="791.0" layoutY="389.0" mnemonicParsing="false" onAction="#onbtnWyszukajCheckBoxClick" text="wyszukaj" />
+      <VBox layoutX="31.0" layoutY="379.0" prefHeight="267.0" prefWidth="219.0">
+         <children>
+            <Label fx:id="zernoscLabel" prefHeight="19.0" prefWidth="54.0" text="Zernosc" />
+            <ListView fx:id="zernoscListView" prefHeight="35.0" prefWidth="219.0" />
+            <Label fx:id="srodowiskoLabel" prefHeight="19.0" prefWidth="140.0" text="Srodowisko" />
+            <ListView fx:id="srodowiskoListView" prefHeight="44.0" prefWidth="219.0" />
+            <Label prefHeight="17.0" prefWidth="113.0" text="Poluje na" />
+            <ListView fx:id="polujeNaListView" prefHeight="46.0" prefWidth="219.0" />
+            <Label prefHeight="17.0" prefWidth="92.0" text="Polowany przez" />
+            <ListView fx:id="polowanyPrzezListView" prefHeight="47.0" prefWidth="219.0" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
