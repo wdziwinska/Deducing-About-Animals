@@ -11,6 +11,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -69,8 +70,24 @@ public class MainController implements Initializable {
 
     public void onBtnWyszukajChoiceBoxClick(ActionEvent actionEvent) {
         animalsBySpeciesListView.getItems().clear();
+
         String chosenSpecies = (String) choiceBoxGatunek.getSelectionModel().getSelectedItem();
-        ArrayList<String> animals = ontology.getAllIndividualsBelongingToClass(chosenSpecies);
+        ArrayList<String> animalsBySpecies = ontology.getAllIndividualsBelongingToClass(chosenSpecies);
+
+        String chosenFoodType = (String) choiceBoxRodzajPozywienia.getSelectionModel().getSelectedItem();
+        ArrayList<String> animalsByFoodType = new ArrayList<String>();
+
+        if (Objects.equals(chosenFoodType, "miesozernosc")){
+            animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Miesozerca");
+        } else if (Objects.equals(chosenFoodType, "roslinozernosc")){
+            animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Roslinozerca");
+        } else {
+            animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Wszystkozerca");
+        }
+
+        ArrayList<String> animals = new ArrayList<String>(animalsBySpecies);
+        animals.retainAll(animalsByFoodType);
+
         animalsBySpeciesListView.getItems().addAll(animals);
 
     }
