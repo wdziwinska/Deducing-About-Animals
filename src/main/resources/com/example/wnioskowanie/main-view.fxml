@@ -6,73 +6,26 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wnioskowanie.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wnioskowanie.MainController">
     <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="2.0" prefHeight="35.0" prefWidth="848.0" text="Wnioskownie o zwierzętach" textAlignment="CENTER" textOverrun="CLIP">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="7.0" prefHeight="35.0" prefWidth="667.0" text="Wnioskownie o zwierzętach" textAlignment="CENTER" textOverrun="CLIP">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
         </Label>
-        <VBox layoutX="31.0" layoutY="30.0" prefHeight="359.0" prefWidth="219.0">
+        <VBox layoutX="36.0" layoutY="60.0" prefHeight="300.0" prefWidth="200.0">
             <children>
-                  <ListView fx:id="animalsListView" onMouseClicked="#onAnimalsListViewClicked" prefHeight="347.0" prefWidth="219.0" />
-                <Label fx:id="infoAboutAnimals" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="190.0" text="Informacje o wybranym zwierzęciu" />
+                  <ListView fx:id="animalsListView" onMouseClicked="#onAnimalsListViewClicked" prefHeight="347.0" prefWidth="200.0" />
             </children>
         </VBox>
-        <HBox layoutX="278.0" layoutY="89.0" prefHeight="173.0" prefWidth="491.0">
+        <HBox layoutX="135.0" layoutY="413.0" prefHeight="135.0" prefWidth="412.0">
             <children>
-                <VBox prefHeight="174.0" prefWidth="130.0">
-                    <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="123.0" text="Gatunek">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="123.0" text="Rodzaj pożywienia">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </Label>
-                    </children>
-                </VBox>
-                <VBox prefHeight="174.0" prefWidth="118.0">
-                    <children>
-                        <ChoiceBox fx:id="choiceBoxGatunek" prefWidth="150.0">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </ChoiceBox>
-                        <ChoiceBox fx:id="choiceBoxRodzajPozywienia" prefWidth="150.0">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </ChoiceBox>
-                        <ChoiceBox prefWidth="150.0">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </ChoiceBox>
-                    </children>
-                </VBox>
-                <ScrollPane prefHeight="141.0" prefWidth="200.0">
-                    <HBox.margin>
-                        <Insets left="20.0" top="10.0" />
-                    </HBox.margin>
-               <content>
-                  <ListView fx:id="animalsBySpeciesListView" prefHeight="160.0" prefWidth="200.0" />
-               </content>
-                </ScrollPane>
-            </children>
-        </HBox>
-        <HBox layoutX="281.0" layoutY="284.0" prefHeight="173.0" prefWidth="491.0">
-            <children>
-                <VBox prefHeight="200.0" prefWidth="100.0">
+                <VBox prefHeight="135.0" prefWidth="85.0">
                     <children>
                         <CheckBox fx:id="chbWlosy" mnemonicParsing="false" text="włosy" />
                         <CheckBox fx:id="chbLuski" mnemonicParsing="false" text="łuski">
@@ -105,13 +58,13 @@
                         </CheckBox>
                     </children>
                     <HBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                     </HBox.margin>
                     <padding>
                         <Insets left="10.0" />
                     </padding>
                 </VBox>
-            <VBox prefHeight="115.0" prefWidth="108.0">
+            <VBox prefHeight="135.0" prefWidth="84.0">
                <children>
                   <CheckBox fx:id="chbLad" mnemonicParsing="false" text="ląd" />
                   <CheckBox fx:id="chbJezioro" mnemonicParsing="false" text="jezioro">
@@ -142,32 +95,70 @@
                   <Insets left="10.0" />
                </padding>
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </HBox.margin>
             </VBox>
-                <ScrollPane>
-                    <HBox.margin>
-                        <Insets left="65.0" top="10.0" />
-                    </HBox.margin>
-               <content>
-                  <ListView fx:id="animalsByCriteriaListView" prefHeight="159.0" prefWidth="200.0" />
-               </content>
-                </ScrollPane>
+            <ListView fx:id="animalsByCriteriaListView" prefHeight="135.0" prefWidth="168.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ListView>
+              <Button fx:id="btnWyszukajCheckBox" alignment="CENTER" mnemonicParsing="false" onAction="#onbtnWyszukajCheckBoxClick" text="wyszukaj">
+               <HBox.margin>
+                  <Insets left="5.0" top="55.0" />
+               </HBox.margin>
+            </Button>
             </children></HBox>
-        <Label alignment="CENTER" layoutX="281.0" layoutY="263.0" prefHeight="22.0" prefWidth="471.0" text="wybierz cechy charakterystyczne" />
-        <Button fx:id="btnWyszukajChoiceBox" layoutX="791.0" layoutY="150.0" mnemonicParsing="false" onAction="#onBtnWyszukajChoiceBoxClick" text="wyszukaj" />
-        <Button fx:id="btnWyszukajCheckBox" layoutX="791.0" layoutY="389.0" mnemonicParsing="false" onAction="#onbtnWyszukajCheckBoxClick" text="wyszukaj" />
-      <VBox layoutX="31.0" layoutY="379.0" prefHeight="267.0" prefWidth="219.0">
+        <Label alignment="CENTER" layoutX="224.0" layoutY="390.0" prefHeight="22.0" prefWidth="234.0" text="wybierz cechy charakterystyczne" />
+      <VBox layoutX="241.0" layoutY="66.0" prefHeight="294.0" prefWidth="200.0">
          <children>
+                <Label fx:id="infoAboutAnimals" alignment="CENTER" prefHeight="23.0" prefWidth="219.0" text="Informacje o wybranym zwierzęciu">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
             <Label fx:id="gatunekLabel" prefHeight="24.0" prefWidth="280.0" text="Gatunek" />
-            <Label fx:id="zernoscLabel" prefHeight="19.0" prefWidth="54.0" text="Zernosc" />
-            <ListView fx:id="zernoscListView" prefHeight="35.0" prefWidth="219.0" />
-            <Label fx:id="srodowiskoLabel" prefHeight="19.0" prefWidth="140.0" text="Srodowisko" />
+            <Label fx:id="zernoscLabel" prefHeight="19.0" prefWidth="54.0" text="Żerność" />
+            <ListView fx:id="zernoscListView" prefHeight="44.0" prefWidth="219.0" />
+            <Label fx:id="srodowiskoLabel" prefHeight="19.0" prefWidth="140.0" text="Środowisko" />
             <ListView fx:id="srodowiskoListView" prefHeight="44.0" prefWidth="219.0" />
             <Label prefHeight="17.0" prefWidth="113.0" text="Poluje na" />
-            <ListView fx:id="polujeNaListView" prefHeight="46.0" prefWidth="219.0" />
+            <ListView fx:id="polujeNaListView" prefHeight="44.0" prefWidth="219.0" />
             <Label prefHeight="17.0" prefWidth="92.0" text="Polowany przez" />
-            <ListView fx:id="polowanyPrzezListView" prefHeight="47.0" prefWidth="219.0" />
+            <ListView fx:id="polowanyPrzezListView" prefHeight="44.0" prefWidth="219.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="457.0" layoutY="59.0" prefHeight="301.0" prefWidth="182.0">
+         <children>
+                <VBox prefHeight="123.0" prefWidth="182.0">
+                    <children>
+                        <Label prefHeight="20.0" prefWidth="123.0" text="Gatunek">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="choiceBoxGatunek" prefHeight="26.0" prefWidth="182.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </ChoiceBox>
+                        <Label prefHeight="20.0" prefWidth="123.0" text="Rodzaj pożywienia">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="choiceBoxRodzajPozywienia" prefHeight="26.0" prefWidth="182.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </ChoiceBox>
+                    </children>
+                </VBox>
+            <ListView fx:id="animalsBySpeciesListView" prefHeight="140.0" prefWidth="200.0" />
+              <Button fx:id="btnWyszukajChoiceBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtnWyszukajChoiceBoxClick" text="wyszukaj">
+               <VBox.margin>
+                  <Insets left="55.0" top="10.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
     </children>
