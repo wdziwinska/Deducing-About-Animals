@@ -13,7 +13,10 @@ public class Test {
         owl.readOntologyFile();
 
         //System.out.println("Gatunki zwierzat:" + owl.getListOfSubclasses("Gatunek"));
-        owl.getSpeciesOfIndividual("orzel");
-
+        //System.out.println(owl.getSpecificObjectPropertyAboutIndividual("jelen","posiadaWytworySkory"));
+        ArrayList<String> criteria=new ArrayList<String>();
+        criteria.add("luski");
+        criteria.add("pletwy");
+        System.out.println(owl.getIndividualsBasedOnMultipleCriteria(criteria));
     }
 }

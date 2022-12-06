@@ -156,6 +156,8 @@ public class OWLApiController {
         return classes;
     }
 
+
+    // Zwraca gatunek do ktorego nalezy zwierze
     public String getSpeciesOfIndividual(String individual){
         ArrayList<String> classes = getClassesOfIndividual(individual);
 
@@ -169,6 +171,33 @@ public class OWLApiController {
         }
         return "ERROR";
 
+    }
+
+    public ArrayList<String> getIndividualsBasedOnMultipleCriteria(ArrayList<String> criteria){
+
+        int currentNumberOfCriteria=0;
+
+        ArrayList<String> animalsToReturn = new ArrayList<String>();
+        ArrayList<String> tempCriteria = new ArrayList<String>();
+        ArrayList<String> animals = getAllIndividualsBelongingToClass("Zwierze");
+        HashMap<String, ArrayList<String>> allProperties;
+        for (String animal : animals){
+            currentNumberOfCriteria=0;
+            allProperties = getAllObjectPropertiesAboutIndividual(animal);
+
+            for (String crit : criteria){
+                tempCriteria.clear();
+                tempCriteria.add(crit);
+                //System.out.println("Temp criteria: " + tempCriteria);
+                if (allProperties.containsValue(tempCriteria)){
+                    currentNumberOfCriteria++;
+                }
+            }
+           if (currentNumberOfCriteria == criteria.size()){
+               animalsToReturn.add(animal);
+           }
+        }
+        return animalsToReturn;
     }
 
     // Z internetu, wypisuje property ktore musi miec dana klasa
