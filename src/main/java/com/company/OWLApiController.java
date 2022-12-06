@@ -135,9 +135,13 @@ public class OWLApiController {
     }
 
 
-    public void getListOfSubclasses(String klasa){
+    public ArrayList<String> getListOfSubclasses(String klasa){
         ArrayList<String> subclasses = new ArrayList<String>();
-
+        NodeSet<OWLClass> owlSubClasses = owlReasoner.getSubClasses(getOntologyClass(klasa),true);
+        for (OWLClass c : owlSubClasses.getFlattened()){
+            subclasses.add(c.getIRI().getFragment());
+        }
+        return subclasses;
 
     }
 
