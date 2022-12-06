@@ -12,8 +12,8 @@ public class Test {
         OWLApiController owl = new OWLApiController();
         owl.readOntologyFile();
 
-        System.out.println("Gatunki zwierzat:" + owl.getListOfSubclasses("Gatunek"));
-
+        //System.out.println("Gatunki zwierzat:" + owl.getListOfSubclasses("Gatunek"));
+        owl.getClassesOfIndividual("lew");
 
     }
 }

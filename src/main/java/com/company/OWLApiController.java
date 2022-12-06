@@ -134,7 +134,7 @@ public class OWLApiController {
         return allProperties;
     }
 
-
+    // Zwraca liste wszystkich podklas danej klasy
     public ArrayList<String> getListOfSubclasses(String klasa){
         ArrayList<String> subclasses = new ArrayList<String>();
         NodeSet<OWLClass> owlSubClasses = owlReasoner.getSubClasses(getOntologyClass(klasa),true);
@@ -143,6 +143,17 @@ public class OWLApiController {
         }
         return subclasses;
 
+    }
+
+    // Zwraca liste klas do ktorych nalezy dane indywiduum
+    public ArrayList<String> getClassesOfIndividual(String individual){
+        ArrayList<String> classes = new ArrayList<String>();
+        NodeSet<OWLClass> types = owlReasoner.getTypes(getOntologyIndividual(individual),true);
+        for (OWLClass c: types.getFlattened()){
+            classes.add(c.getIRI().getFragment());
+        }
+
+        return classes;
     }
 
     // Z internetu, wypisuje property ktore musi miec dana klasa
