@@ -64,13 +64,13 @@
                         </ChoiceBox>
                     </children>
                 </VBox>
-                <ScrollPane>
+                <ScrollPane prefHeight="141.0" prefWidth="200.0">
                     <HBox.margin>
                         <Insets left="20.0" top="10.0" />
                     </HBox.margin>
-                    <content>
-                        <Label alignment="TOP_LEFT" prefHeight="172.0" prefWidth="196.0" text="Lista zwierząt o wybranych cechach" />
-                    </content>
+               <content>
+                  <ListView fx:id="animalsBySpeciesListView" prefHeight="160.0" prefWidth="200.0" />
+               </content>
                 </ScrollPane>
             </children>
         </HBox>

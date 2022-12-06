@@ -18,9 +18,6 @@ public class MainController implements Initializable {
     private Label infoAboutAnimals;
 
     @FXML
-    private ListView animalsSpeciesListView;
-
-    @FXML
     private ListView animalsListView;
 
     @FXML
@@ -28,6 +25,9 @@ public class MainController implements Initializable {
 
     @FXML
     private ChoiceBox choiceBoxRodzajPozywienia;
+
+    @FXML
+    private ListView animalsBySpeciesListView;
 
     @FXML
     private CheckBox chbWlosy;
@@ -68,9 +68,10 @@ public class MainController implements Initializable {
     }
 
     public void onBtnWyszukajChoiceBoxClick(ActionEvent actionEvent) {
+        animalsBySpeciesListView.getItems().clear();
         String chosenSpecies = (String) choiceBoxGatunek.getSelectionModel().getSelectedItem();
         ArrayList<String> animals = ontology.getAllIndividualsBelongingToClass(chosenSpecies);
-        //animalsSpeciesListView.getItems().addAll(animals);
+        animalsBySpeciesListView.getItems().addAll(animals);
 
     }
 
