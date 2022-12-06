@@ -23,7 +23,7 @@
             <children>
                 <ScrollPane>
                     <content>
-                        <ListView fx:id="animalsListView" prefHeight="347.0" prefWidth="219.0" />
+                        <ListView fx:id="animalsListView" onMouseClicked="#onAnimalsListViewClicked" prefHeight="347.0" prefWidth="219.0" />
                     </content>
                 </ScrollPane>
                 <Label fx:id="infoAboutAnimals" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="190.0" text="Informacje o wybranym zwierzęciu" />

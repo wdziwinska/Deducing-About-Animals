@@ -11,6 +11,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -94,6 +95,13 @@ public class MainController implements Initializable {
 
     public void onbtnWyszukajCheckBoxClick(ActionEvent actionEvent) {
         System.out.println("Test2");
+    }
+
+    public void onAnimalsListViewClicked(){
+        String chosenAnimal = (String) animalsListView.getSelectionModel().getSelectedItem();
+        System.out.println(chosenAnimal);
+        HashMap<String,ArrayList<String>> infoAboutChosenAnimal = ontology.getAllObjectPropertiesAboutIndividual(chosenAnimal);
+        System.out.println(infoAboutChosenAnimal);
     }
 
 //    private void animalsListViewData() throws OWLOntologyCreationException {
