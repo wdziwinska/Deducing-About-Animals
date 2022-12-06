@@ -161,7 +161,7 @@
                 </ScrollPane>
             </children></HBox>
         <Label alignment="CENTER" layoutX="281.0" layoutY="263.0" prefHeight="22.0" prefWidth="471.0" text="wybierz cechy charakterystyczne" />
-        <Button fx:id="btnWyszukajChoiceBox" layoutX="791.0" layoutY="150.0" mnemonicParsing="false" text="wyszukaj" />
-        <Button fx:id="btnWyszukajCheckBox" layoutX="791.0" layoutY="389.0" mnemonicParsing="false" text="wyszukaj" />
+        <Button fx:id="btnWyszukajChoiceBox" layoutX="791.0" layoutY="150.0" mnemonicParsing="false" onAction="#onBtnWyszukajChoiceBoxClick" text="wyszukaj" />
+        <Button fx:id="btnWyszukajCheckBox" layoutX="791.0" layoutY="389.0" mnemonicParsing="false" onAction="#onbtnWyszukajCheckBoxClick" text="wyszukaj" />
     </children>
 </AnchorPane>

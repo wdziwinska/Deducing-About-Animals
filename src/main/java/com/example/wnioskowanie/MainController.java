@@ -3,6 +3,7 @@ package com.example.wnioskowanie;
 import com.company.OWLApiController;
 import com.company.Ontology;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -63,7 +64,19 @@ public class MainController implements Initializable {
 //        animalsListView.getItems().addAll(ontology.getAnimalsList());
     }
 
+    public void onBtnWyszukajChoiceBoxClick(ActionEvent actionEvent) {
+        System.out.println("Test");
+    }
+
+    public void onbtnWyszukajCheckBoxClick(ActionEvent actionEvent) {
+        System.out.println("Test2");
+    }
+
 //    private void animalsListViewData() throws OWLOntologyCreationException {
 //        animalsListView.getItems().addAll(ontology.setAnimalsList());
 //    }
+
+
+
+
 }
