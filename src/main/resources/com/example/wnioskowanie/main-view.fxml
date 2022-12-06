@@ -75,7 +75,7 @@
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
                         <CheckBox fx:id="chbWlosy" mnemonicParsing="false" text="włosy" />
-                        <CheckBox fx:id="chbLuzki" mnemonicParsing="false" text="łuzki">
+                        <CheckBox fx:id="chbLuski" mnemonicParsing="false" text="łuski">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -88,17 +88,17 @@
                                 <Insets top="5.0" />
                             </padding>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="skóra">
+                        <CheckBox fx:id="chbNogi" mnemonicParsing="false" text="nogi">
                             <padding>
                                 <Insets top="5.0" />
                             </padding>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="łuzki">
+                        <CheckBox fx:id="chbSkrzydla" mnemonicParsing="false" text="skrzydła">
                             <padding>
                                 <Insets top="5.0" />
                             </padding>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="łuzki">
+                        <CheckBox fx:id="chbPletwy" mnemonicParsing="false" text="płetwy">
                             <padding>
                                 <Insets top="5.0" />
                             </padding>
@@ -112,37 +112,6 @@
                     </padding>
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0">
-                    <children>
-                        <CheckBox mnemonicParsing="false" text="pazury" />
-                        <CheckBox mnemonicParsing="false" text="szpony">
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
-                            <padding>
-                                <Insets top="5.0" />
-                            </padding>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="łapy">
-                            <padding>
-                                <Insets top="5.0" />
-                            </padding>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="kopyta">
-                            <padding>
-                                <Insets top="5.0" />
-                            </padding>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="skrzydła">
-                            <padding>
-                                <Insets top="5.0" />
-                            </padding>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="płetwy">
-                            <padding>
-                                <Insets top="5.0" />
-                            </padding>
-                        </CheckBox>
-                    </children>
                     <padding>
                         <Insets left="10.0" top="10.0" />
                     </padding>
@@ -151,9 +120,9 @@
                     <HBox.margin>
                         <Insets left="65.0" top="10.0" />
                     </HBox.margin>
-                    <content>
-                        <Label alignment="TOP_LEFT" prefHeight="172.0" prefWidth="196.0" text="Lista zwierząt o wybranych cechach" />
-                    </content>
+               <content>
+                  <ListView fx:id="animalsByCriteriaListView" prefHeight="159.0" prefWidth="200.0" />
+               </content>
                 </ScrollPane>
             </children></HBox>
         <Label alignment="CENTER" layoutX="281.0" layoutY="263.0" prefHeight="22.0" prefWidth="471.0" text="wybierz cechy charakterystyczne" />

@@ -1,8 +1,6 @@
 package com.example.wnioskowanie;
 
-import com.company.OWLApiController;
 import com.company.Ontology;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,6 +30,9 @@ public class MainController implements Initializable {
     private ListView animalsBySpeciesListView;
 
     @FXML
+    private ListView animalsByCriteriaListView;
+
+    @FXML
     private ListView zernoscListView;
 
     @FXML
@@ -50,10 +51,19 @@ public class MainController implements Initializable {
     private CheckBox chbWlosy;
 
     @FXML
-    private CheckBox chbLuzki;
+    private CheckBox chbLuski;
 
     @FXML
     private CheckBox chbPiora;
+
+    @FXML
+    private CheckBox chbNogi;
+
+    @FXML
+    private CheckBox chbSkrzydla;
+
+    @FXML
+    private CheckBox chbPletwy;
 
     @FXML
     private Button btnWyszukajChoiceBox;
@@ -109,7 +119,30 @@ public class MainController implements Initializable {
     }
 
     public void onbtnWyszukajCheckBoxClick(ActionEvent actionEvent) {
-        System.out.println("Test2");
+        //System.out.println("Test2");
+        animalsByCriteriaListView.getItems().clear();
+        ArrayList<String> criteria = new ArrayList<String>();
+        if (chbWlosy.isSelected()){
+            criteria.add("wlosy");
+        }
+        if (chbLuski.isSelected()){
+            criteria.add("luski");
+        }
+        if (chbPiora.isSelected()){
+            criteria.add("piora");
+        }
+        if (chbNogi.isSelected()){
+            criteria.add("nogi");
+        }
+        if (chbSkrzydla.isSelected()){
+            criteria.add("skrzydla");
+        }
+        if (chbPletwy.isSelected()){
+            criteria.add("pletwy");
+        }
+
+        ArrayList<String> animals = ontology.getAnimalsByCriteria(criteria);
+        animalsByCriteriaListView.getItems().addAll(animals);
     }
 
     public void onAnimalsListViewClicked(){

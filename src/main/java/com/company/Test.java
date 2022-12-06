@@ -3,7 +3,6 @@ package com.company;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Test {
     public static void main(String[] args) throws OWLOntologyCreationException {
@@ -18,6 +17,6 @@ public class Test {
         criteria.add("nogi");
         criteria.add("skrzydla");
         criteria.add("piora");
-        System.out.println(owl.getIndividualsByCriteria(criteria));
+        System.out.println(owl.getAnimalsByCriteria(criteria));
     }
 }

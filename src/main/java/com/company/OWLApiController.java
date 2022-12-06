@@ -173,7 +173,7 @@ public class OWLApiController {
 
     }
 
-    public ArrayList<String> getIndividualsByCriteria(ArrayList<String> criteria){
+    public ArrayList<String> getAnimalsByCriteria(ArrayList<String> criteria){
 
         int currentNumberOfCriteria=0;
 
