@@ -9,10 +9,15 @@ public class Ontology extends OWLApiController{
     public ArrayList<String> animals;
     private ArrayList<String> mammals;
     public ArrayList<String> species;
+    public ArrayList<String> foodTypes;
 
-    @Override
-    public void initialize() {
 
+    public ArrayList<String> getFoodTypes() {
+        return foodTypes;
+    }
+
+    public void setFoodTypes(ArrayList<String> foodTypes) {
+        this.foodTypes = foodTypes;
     }
 
     public ArrayList<String> getAnimals() {
@@ -40,6 +45,10 @@ public class Ontology extends OWLApiController{
 
         ArrayList<String> speciesList = getListOfSubclasses("Gatunek");
         setSpecies(speciesList);
+
+        ArrayList<String> foodTypesList = getAllIndividualsBelongingToClass("Zernosc");
+        setFoodTypes(foodTypesList);
+
 
 //        System.out.println("Lista zwierzat: ");
 //        for (String s : animalsList){
