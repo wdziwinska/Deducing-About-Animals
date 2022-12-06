@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wnioskowanie.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wnioskowanie.MainController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="2.0" prefHeight="35.0" prefWidth="848.0" text="Wnioskownie o zwierzętach" textAlignment="CENTER" textOverrun="CLIP">
             <font>
@@ -23,7 +23,7 @@
             <children>
                 <ScrollPane>
                     <content>
-                        <ListView fx:id="animalsLitsView" prefHeight="347.0" prefWidth="219.0" />
+                        <ListView fx:id="animalsListView" prefHeight="347.0" prefWidth="219.0" />
                     </content>
                 </ScrollPane>
                 <Label fx:id="infoAboutAnimals" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="190.0" text="Informacje o wybranym zwierzęciu" />
@@ -47,12 +47,12 @@
                 </VBox>
                 <VBox prefHeight="174.0" prefWidth="118.0">
                     <children>
-                        <ChoiceBox prefWidth="150.0">
+                        <ChoiceBox fx:id="choiceBoxGatunek" prefWidth="150.0">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </ChoiceBox>
-                        <ChoiceBox prefWidth="150.0">
+                        <ChoiceBox fx:id="choiceBoxRodzajPozywienia" prefWidth="150.0">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
@@ -78,8 +78,8 @@
             <children>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <CheckBox mnemonicParsing="false" text="włosy" />
-                        <CheckBox mnemonicParsing="false" text="łuzki">
+                        <CheckBox fx:id="chbWlosy" mnemonicParsing="false" text="włosy" />
+                        <CheckBox fx:id="chbLuzki" mnemonicParsing="false" text="łuzki">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -87,7 +87,7 @@
                                 <Insets top="5.0" />
                             </padding>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="pióra">
+                        <CheckBox fx:id="chbPiora" mnemonicParsing="false" text="pióra">
                             <padding>
                                 <Insets top="5.0" />
                             </padding>
@@ -161,7 +161,7 @@
                 </ScrollPane>
             </children></HBox>
         <Label alignment="CENTER" layoutX="281.0" layoutY="263.0" prefHeight="22.0" prefWidth="471.0" text="wybierz cechy charakterystyczne" />
-        <Button layoutX="791.0" layoutY="150.0" mnemonicParsing="false" text="wyszukaj" />
-        <Button layoutX="791.0" layoutY="389.0" mnemonicParsing="false" text="wyszukaj" />
+        <Button fx:id="btnWyszukajChoiceBox" layoutX="791.0" layoutY="150.0" mnemonicParsing="false" text="wyszukaj" />
+        <Button fx:id="btnWyszukajCheckBox" layoutX="791.0" layoutY="389.0" mnemonicParsing="false" text="wyszukaj" />
     </children>
 </AnchorPane>
