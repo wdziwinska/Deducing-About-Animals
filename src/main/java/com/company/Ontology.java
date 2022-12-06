@@ -3,10 +3,12 @@ package com.company;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Ontology extends OWLApiController{
 
-    public ArrayList<String> animals;
+    private final List<String> animals = new CopyOnWriteArrayList<>();
     private ArrayList<String> mammals;
     public ArrayList<String> species;
     public ArrayList<String> foodTypes;
@@ -20,15 +22,19 @@ public class Ontology extends OWLApiController{
         this.foodTypes = foodTypes;
     }
 
-    public ArrayList<String> getAnimals() {
+    public List<String> getAnimals() {
         return animals;
     }
 
-    public void setAnimals(ArrayList<String> animals) {
-        this.animals = animals;
+    public void clearAnimalList() {
+        animals.clear();
     }
 
-    public ArrayList<String> getSpecies() {
+    public void addAnimalToList(String animal) {
+        animals.add(animal);
+    }
+
+    public List<String> getSpecies() {
         return species;
     }
 
@@ -41,7 +47,7 @@ public class Ontology extends OWLApiController{
         readOntologyFile();
 
         ArrayList<String> animalsList = getAllIndividualsBelongingToClass("Zwierze");
-        setAnimals(animalsList);
+        animals.addAll(animalsList);
 
         ArrayList<String> speciesList = getListOfSubclasses("Gatunek");
         setSpecies(speciesList);
