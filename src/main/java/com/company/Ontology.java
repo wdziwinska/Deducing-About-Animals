@@ -8,6 +8,7 @@ public class Ontology extends OWLApiController{
 
     public ArrayList<String> animals;
     private ArrayList<String> mammals;
+    public ArrayList<String> species;
 
     @Override
     public void initialize() {
@@ -22,12 +23,23 @@ public class Ontology extends OWLApiController{
         this.animals = animals;
     }
 
+    public ArrayList<String> getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(ArrayList<String> species) {
+        this.species = species;
+    }
+
     public void ontologyLists() throws OWLOntologyCreationException {
 
         readOntologyFile();
 
         ArrayList<String> animalsList = getAllIndividualsBelongingToClass("Zwierze");
         setAnimals(animalsList);
+
+        ArrayList<String> speciesList = getListOfSubclasses("Gatunek");
+        setSpecies(speciesList);
 
 //        System.out.println("Lista zwierzat: ");
 //        for (String s : animalsList){

@@ -54,6 +54,8 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
         animalsListView.getItems().addAll(ontology.getAnimals());
+        choiceBoxGatunek.getItems().addAll(ontology.getSpecies());
+
 //        System.out.println("Animals list view from initialize");
 //        System.out.println(ontology.getAnimals());
 //        animalsListView.getItems().addAll(ontology.getAnimalsList());
