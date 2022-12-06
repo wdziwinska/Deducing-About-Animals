@@ -66,6 +66,22 @@ public class MainController implements Initializable {
     private CheckBox chbPletwy;
 
     @FXML
+    private CheckBox chbLad;
+
+    @FXML
+    private CheckBox chbJezioro;
+
+    @FXML
+    private CheckBox chbRzeka;
+
+    @FXML
+    private CheckBox chbMorze;
+
+    @FXML
+    private CheckBox chbOcean;
+
+
+    @FXML
     private Button btnWyszukajChoiceBox;
 
     @FXML
@@ -140,6 +156,22 @@ public class MainController implements Initializable {
         if (chbPletwy.isSelected()){
             criteria.add("pletwy");
         }
+        if (chbLad.isSelected()){
+            criteria.add("lad");
+        }
+        if (chbJezioro.isSelected()){
+            criteria.add("jezioro");
+        }
+        if (chbRzeka.isSelected()){
+            criteria.add("rzeka");
+        }
+        if (chbMorze.isSelected()){
+            criteria.add("morze");
+        }
+        if (chbOcean.isSelected()){
+            criteria.add("ocean");
+        }
+
 
         ArrayList<String> animals = ontology.getAnimalsByCriteria(criteria);
         animalsByCriteriaListView.getItems().addAll(animals);

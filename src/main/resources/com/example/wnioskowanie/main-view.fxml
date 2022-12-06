@@ -111,11 +111,40 @@
                         <Insets left="10.0" />
                     </padding>
                 </VBox>
-                <VBox prefHeight="200.0" prefWidth="100.0">
-                    <padding>
-                        <Insets left="10.0" top="10.0" />
-                    </padding>
-                </VBox>
+            <VBox prefHeight="115.0" prefWidth="108.0">
+               <children>
+                  <CheckBox fx:id="chbLad" mnemonicParsing="false" text="ląd" />
+                  <CheckBox fx:id="chbJezioro" mnemonicParsing="false" text="jezioro">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox fx:id="chbRzeka" mnemonicParsing="false" text="rzeka">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox fx:id="chbMorze" mnemonicParsing="false" text="morze">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox fx:id="chbOcean" mnemonicParsing="false" text="ocean">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </CheckBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </VBox>
                 <ScrollPane>
                     <HBox.margin>
                         <Insets left="65.0" top="10.0" />
