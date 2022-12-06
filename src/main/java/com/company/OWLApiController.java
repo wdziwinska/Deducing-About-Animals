@@ -173,7 +173,7 @@ public class OWLApiController {
 
     }
 
-    public ArrayList<String> getIndividualsBasedOnMultipleCriteria(ArrayList<String> criteria){
+    public ArrayList<String> getIndividualsByCriteria(ArrayList<String> criteria){
 
         int currentNumberOfCriteria=0;
 
@@ -189,8 +189,13 @@ public class OWLApiController {
                 tempCriteria.clear();
                 tempCriteria.add(crit);
                 //System.out.println("Temp criteria: " + tempCriteria);
-                if (allProperties.containsValue(tempCriteria)){
-                    currentNumberOfCriteria++;
+//                if (allProperties.containsValue(tempCriteria)){
+//                    currentNumberOfCriteria++;
+//                }
+                for (Map.Entry<String,ArrayList<String>> set : allProperties.entrySet()){
+                    if (set.getValue().contains(crit)){
+                        currentNumberOfCriteria++;
+                    }
                 }
             }
            if (currentNumberOfCriteria == criteria.size()){

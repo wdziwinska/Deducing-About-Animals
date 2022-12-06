@@ -15,8 +15,9 @@ public class Test {
         //System.out.println("Gatunki zwierzat:" + owl.getListOfSubclasses("Gatunek"));
         //System.out.println(owl.getSpecificObjectPropertyAboutIndividual("jelen","posiadaWytworySkory"));
         ArrayList<String> criteria=new ArrayList<String>();
-        criteria.add("luski");
-        criteria.add("pletwy");
-        System.out.println(owl.getIndividualsBasedOnMultipleCriteria(criteria));
+        criteria.add("nogi");
+        criteria.add("skrzydla");
+        criteria.add("piora");
+        System.out.println(owl.getIndividualsByCriteria(criteria));
     }
 }
