@@ -101,8 +101,8 @@ public abstract class OWLApiController {
         return values;
     }
 
-    public void getAllObjectPropertiesAboutIndividual(String individual){
-        HashMap<String, List<String>> allProperties = new HashMap<String,List<String>>();
+    public HashMap<String,ArrayList<String>> getAllObjectPropertiesAboutIndividual(String individual){
+        HashMap<String, ArrayList<String>> allProperties = new HashMap<String,ArrayList<String>>();
 
         ArrayList<String> valuesOfOneProperty = new ArrayList<String>();
         String propertyName;
@@ -114,29 +114,22 @@ public abstract class OWLApiController {
 
         // For each existing property
         for (OWLObjectProperty objectProperty: owlObjectProperties){
-            ArrayList<String> temp = new ArrayList<String>();
             // Get the name of the current property
             propertyName=objectProperty.getIRI().getFragment();
 
-            // Clear the temp array
-            temp.clear();
 
             // Get values of that property, for specified individual
             valuesOfOneProperty = getSpecificObjectPropertyAboutIndividual(individual,propertyName);
 
 
-            temp.addAll(valuesOfOneProperty);
-            System.out.println("Nowa petla: " + propertyName);
-            for (String s : temp){
-                System.out.println(propertyName + "="+s);
-
-            }
+            ArrayList<String> temp = new ArrayList<String>(valuesOfOneProperty);
 
             allProperties.put(propertyName,temp);
 
         }
-        System.out.println("Poza petla: ");
-        System.out.println(allProperties);
+//        System.out.println("Poza petla: ");
+//        System.out.println(allProperties);
+        return allProperties;
     }
 
     // Z internetu, wypisuje property ktore musi miec dana klasa
