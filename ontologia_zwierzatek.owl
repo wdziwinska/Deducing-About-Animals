@@ -133,6 +133,41 @@
     
 
 
+    <!-- http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Chodzace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Chodzace">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#posiadaKonczyny"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#nogi"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#posiadaSrodowisko"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#lad"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Cieplnosc -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Cieplnosc"/>
@@ -287,6 +322,31 @@
     
 
 
+    <!-- http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Latajace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Latajace">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#posiadaKonczyny"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#skrzydla"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Miesozerca -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Miesozerca">
@@ -328,6 +388,45 @@
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#jestPolowanyPrzez"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Drapieznik"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Pelzajace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Pelzajace">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#posiadaKonczyny"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#nogi"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#posiadaSrodowisko"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#lad"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -397,6 +496,60 @@
                                     <owl:Class>
                                         <owl:oneOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#lad"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#rzeka"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Plywajace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Plywajace">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#posiadaKonczyny"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#pletwy"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#posiadaSrodowisko"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#jezioro"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#morze"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#ocean"/>
                                         </owl:oneOf>
                                     </owl:Class>
                                     <owl:Class>
@@ -621,7 +774,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Plywajace"/>
     </owl:Class>
     
 
