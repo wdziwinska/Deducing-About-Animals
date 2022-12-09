@@ -93,8 +93,7 @@ public class MainController implements Initializable {
 
     // ArrayList<String> animalsList = ontology.getAnimals();
 
-    String[] gatunek = {"Ssak", "Ptak", "Płaz", "Gad", "Ryba", " "};
-
+    String[] gatunek = {"Ssak", "Ptak", "Płaz", "Gad", "Ryba", "-"};
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
@@ -103,15 +102,9 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
         animalsListView.getItems().addAll(ontology.getAnimals());
-       // choiceBoxGatunek.getItems().addAll(ontology.getSpecies());
         choiceBoxRodzajPozywienia.getItems().addAll(ontology.getFoodTypes());
         choiceBoxGatunek.getItems().addAll(gatunek);
 
-
-
-//        System.out.println("Animals list view from initialize");
-//        System.out.println(ontology.getAnimals());
-//        animalsListView.getItems().addAll(ontology.getAnimalsList());
     }
 
     public void onBtnWyszukajChoiceBoxClick(ActionEvent actionEvent) {
@@ -119,7 +112,7 @@ public class MainController implements Initializable {
 
         String chosenSpecies = (String) choiceBoxGatunek.getSelectionModel().getSelectedItem();
 
-        if(chosenSpecies == null || chosenSpecies.equals(" ") ){
+        if(chosenSpecies == null || chosenSpecies.equals("-") ){
             animalsBySpecies = ontology.getAllIndividualsBelongingToClass("Zwierze");
         } else{
             animalsBySpecies = ontology.getAllIndividualsBelongingToClass(chosenSpecies);
@@ -209,10 +202,4 @@ public class MainController implements Initializable {
 
 
     }
-
-//    private void animalsListViewData() throws OWLOntologyCreationException {
-//        animalsListView.getItems().addAll(ontology.setAnimalsList());
-//    }
-
-
 }

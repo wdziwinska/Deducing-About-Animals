@@ -111,7 +111,6 @@ public class OWLApiController {
         Properties properties;
 
         // Get all objectProperties in ontology
-        //collection = owlOntology.getClassesInSignature();
         Collection<OWLObjectProperty> owlObjectProperties = owlOntology.getObjectPropertiesInSignature();
 
         // For each existing property
@@ -129,8 +128,6 @@ public class OWLApiController {
             allProperties.put(propertyName,temp);
 
         }
-//        System.out.println("Poza petla: ");
-//        System.out.println(allProperties);
         return allProperties;
     }
 
@@ -162,15 +159,8 @@ public class OWLApiController {
         ArrayList<String> classes = getClassesOfIndividual(individual);
 
         for (String c : classes){
-//            NodeSet<OWLClass> superclasses = owlReasoner.getSuperClasses(getOntologyClass(c),false);
-//            for (OWLClass sc : superclasses.getFlattened()){
-//                if (Objects.equals(sc.getIRI().getFragment(), "Gatunek")){
-//                    return c;
-//                }
-//            }
             if(Objects.equals(c, "Ptak") || Objects.equals(c, "Plaz") || Objects.equals(c, "Gad") ||
                     Objects.equals(c, "Ssak") || Objects.equals(c, "Ryba")){
-                //System.out.println("c: " + c);
                 return c;
             }
         }
@@ -193,10 +183,6 @@ public class OWLApiController {
             for (String crit : criteria){
                 tempCriteria.clear();
                 tempCriteria.add(crit);
-                //System.out.println("Temp criteria: " + tempCriteria);
-//                if (allProperties.containsValue(tempCriteria)){
-//                    currentNumberOfCriteria++;
-//                }
                 for (Map.Entry<String,ArrayList<String>> set : allProperties.entrySet()){
                     if (set.getValue().contains(crit)){
                         currentNumberOfCriteria++;
@@ -208,41 +194,5 @@ public class OWLApiController {
            }
         }
         return animalsToReturn;
-    }
-
-    // Z internetu, wypisuje property ktore musi miec dana klasa
-    public void test(){
-        printProperties(ontologyManager,owlOntology,owlReasoner,getOntologyClass("Ssak"));
-    }
-    private static boolean hasProperty(OWLOntologyManager man, OWLReasoner reasoner,
-                                       OWLClass cls, OWLObjectPropertyExpression prop) {
-
-        OWLDataFactory dataFactory = man.getOWLDataFactory();
-        OWLClassExpression restriction = dataFactory.getOWLObjectSomeValuesFrom(prop,
-                dataFactory.getOWLThing());
-        OWLClassExpression complement = dataFactory.getOWLObjectComplementOf(restriction);
-        OWLClassExpression intersection = dataFactory.getOWLObjectIntersectionOf(cls,
-                complement);
-        return !reasoner.isSatisfiable(intersection);
-    }
-
-    private static void printProperties(OWLOntologyManager man, OWLOntology ont,
-                                        OWLReasoner reasoner, OWLClass cls) {
-        if (!ont.containsClassInSignature(cls.getIRI())) {
-            throw new RuntimeException("Class not in signature of the ontology");
-        }
-        System.out.println("Properties of " + cls);
-        for (OWLObjectPropertyExpression prop : ont.getObjectPropertiesInSignature()) {
-            boolean sat = hasProperty(man, reasoner, cls, prop);
-            if (sat) {
-                System.out.println("Instances of " + cls
-                        + " necessarily have the property " + prop);
-            }
-        }
-    }
-
-
-    public void initialize() {
-
     }
 }
