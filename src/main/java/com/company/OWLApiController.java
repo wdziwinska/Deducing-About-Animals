@@ -162,11 +162,16 @@ public class OWLApiController {
         ArrayList<String> classes = getClassesOfIndividual(individual);
 
         for (String c : classes){
-            NodeSet<OWLClass> superclasses = owlReasoner.getSuperClasses(getOntologyClass(c),false);
-            for (OWLClass sc : superclasses.getFlattened()){
-                if (Objects.equals(sc.getIRI().getFragment(), "Gatunek")){
-                    return c;
-                }
+//            NodeSet<OWLClass> superclasses = owlReasoner.getSuperClasses(getOntologyClass(c),false);
+//            for (OWLClass sc : superclasses.getFlattened()){
+//                if (Objects.equals(sc.getIRI().getFragment(), "Gatunek")){
+//                    return c;
+//                }
+//            }
+            if(Objects.equals(c, "Ptak") || Objects.equals(c, "Plaz") || Objects.equals(c, "Gad") ||
+                    Objects.equals(c, "Ssak") || Objects.equals(c, "Ryba")){
+                //System.out.println("c: " + c);
+                return c;
             }
         }
         return "ERROR";

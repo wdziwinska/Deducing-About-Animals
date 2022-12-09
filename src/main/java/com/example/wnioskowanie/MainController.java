@@ -89,20 +89,24 @@ public class MainController implements Initializable {
 
     Ontology ontology = new Ontology();
 
-   // ArrayList<String> animalsList = ontology.getAnimals();
+    private ArrayList<String> animalsBySpecies;
 
-    String[] anim = {"pies, kot, kaczka"};
+    // ArrayList<String> animalsList = ontology.getAnimals();
+
+    String[] gatunek = {"Ssak", "Ptak", "Płaz", "Gad", "Ryba", " "};
 
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1){
+    public void initialize(URL arg0, ResourceBundle arg1) {
         try {
             ontology.ontologyLists();
         } catch (OWLOntologyCreationException e) {
             e.printStackTrace();
         }
         animalsListView.getItems().addAll(ontology.getAnimals());
-        choiceBoxGatunek.getItems().addAll(ontology.getSpecies());
+       // choiceBoxGatunek.getItems().addAll(ontology.getSpecies());
         choiceBoxRodzajPozywienia.getItems().addAll(ontology.getFoodTypes());
+        choiceBoxGatunek.getItems().addAll(gatunek);
+
 
 
 //        System.out.println("Animals list view from initialize");
@@ -114,16 +118,21 @@ public class MainController implements Initializable {
         animalsBySpeciesListView.getItems().clear();
 
         String chosenSpecies = (String) choiceBoxGatunek.getSelectionModel().getSelectedItem();
-        ArrayList<String> animalsBySpecies = ontology.getAllIndividualsBelongingToClass(chosenSpecies);
+
+        if(chosenSpecies == null || chosenSpecies.equals(" ") ){
+            animalsBySpecies = ontology.getAllIndividualsBelongingToClass("Zwierze");
+        } else{
+            animalsBySpecies = ontology.getAllIndividualsBelongingToClass(chosenSpecies);
+        }
 
         String chosenFoodType = (String) choiceBoxRodzajPozywienia.getSelectionModel().getSelectedItem();
         ArrayList<String> animalsByFoodType = new ArrayList<String>();
 
-        if (Objects.equals(chosenFoodType, "miesozernosc")){
+        if (Objects.equals(chosenFoodType, "miesozernosc")) {
             animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Miesozerca");
-        } else if (Objects.equals(chosenFoodType, "roslinozernosc")){
+        } else if (Objects.equals(chosenFoodType, "roslinozernosc")) {
             animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Roslinozerca");
-        } else {
+        } else if (Objects.equals(chosenFoodType, "wszystkozernosc")){
             animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Wszystkozerca");
         }
 
@@ -138,70 +147,65 @@ public class MainController implements Initializable {
         //System.out.println("Test2");
         animalsByCriteriaListView.getItems().clear();
         ArrayList<String> criteria = new ArrayList<String>();
-        if (chbWlosy.isSelected()){
+        if (chbWlosy.isSelected()) {
             criteria.add("wlosy");
         }
-        if (chbLuski.isSelected()){
+        if (chbLuski.isSelected()) {
             criteria.add("luski");
         }
-        if (chbPiora.isSelected()){
+        if (chbPiora.isSelected()) {
             criteria.add("piora");
         }
-        if (chbNogi.isSelected()){
+        if (chbNogi.isSelected()) {
             criteria.add("nogi");
         }
-        if (chbSkrzydla.isSelected()){
+        if (chbSkrzydla.isSelected()) {
             criteria.add("skrzydla");
         }
-        if (chbPletwy.isSelected()){
+        if (chbPletwy.isSelected()) {
             criteria.add("pletwy");
         }
-        if (chbLad.isSelected()){
+        if (chbLad.isSelected()) {
             criteria.add("lad");
         }
-        if (chbJezioro.isSelected()){
+        if (chbJezioro.isSelected()) {
             criteria.add("jezioro");
         }
-        if (chbRzeka.isSelected()){
+        if (chbRzeka.isSelected()) {
             criteria.add("rzeka");
         }
-        if (chbMorze.isSelected()){
+        if (chbMorze.isSelected()) {
             criteria.add("morze");
         }
-        if (chbOcean.isSelected()){
+        if (chbOcean.isSelected()) {
             criteria.add("ocean");
         }
-
 
         ArrayList<String> animals = ontology.getAnimalsByCriteria(criteria);
         animalsByCriteriaListView.getItems().addAll(animals);
     }
 
-    public void onAnimalsListViewClicked(){
+    public void onAnimalsListViewClicked() {
         zernoscListView.getItems().clear();
         srodowiskoListView.getItems().clear();
         polujeNaListView.getItems().clear();
         polowanyPrzezListView.getItems().clear();
 
         String chosenAnimal = (String) animalsListView.getSelectionModel().getSelectedItem();
-        HashMap<String,ArrayList<String>> infoAboutChosenAnimal = ontology.getAllObjectPropertiesAboutIndividual(chosenAnimal);
+        HashMap<String, ArrayList<String>> infoAboutChosenAnimal = ontology.getAllObjectPropertiesAboutIndividual(chosenAnimal);
         gatunekLabel.setText("Gatunek: " + ontology.getSpeciesOfIndividual(chosenAnimal));
-        if (infoAboutChosenAnimal.get("posiadaZernosc")!=null){
+        if (infoAboutChosenAnimal.get("posiadaZernosc") != null) {
             zernoscListView.getItems().addAll(infoAboutChosenAnimal.get("posiadaZernosc"));
         }
-        if (infoAboutChosenAnimal.get("posiadaSrodowisko")!=null){
+        if (infoAboutChosenAnimal.get("posiadaSrodowisko") != null) {
             srodowiskoListView.getItems().addAll(infoAboutChosenAnimal.get("posiadaSrodowisko"));
         }
-        if (infoAboutChosenAnimal.get("polujeNa")!=null){
+        if (infoAboutChosenAnimal.get("polujeNa") != null) {
             polujeNaListView.getItems().addAll(infoAboutChosenAnimal.get("polujeNa"));
         }
-        if (infoAboutChosenAnimal.get("jestPolowanyPrzez")!=null){
+        if (infoAboutChosenAnimal.get("jestPolowanyPrzez") != null) {
             polowanyPrzezListView.getItems().addAll(infoAboutChosenAnimal.get("jestPolowanyPrzez"));
         }
-
-
-
-
 
 
     }
@@ -209,8 +213,6 @@ public class MainController implements Initializable {
 //    private void animalsListViewData() throws OWLOntologyCreationException {
 //        animalsListView.getItems().addAll(ontology.setAnimalsList());
 //    }
-
-
 
 
 }
