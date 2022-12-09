@@ -91,9 +91,16 @@ public class MainController implements Initializable {
 
     private ArrayList<String> animalsBySpecies;
 
-    // ArrayList<String> animalsList = ontology.getAnimals();
-
     String[] gatunek = {"Ssak", "Ptak", "Płaz", "Gad", "Ryba", "-"};
+
+    ArrayList<String> rodzajPozywienia;
+
+    public ArrayList<String> getRodzajPozywienia() {
+        rodzajPozywienia = ontology.getFoodTypes();
+        rodzajPozywienia.add("-");
+        return rodzajPozywienia;
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
@@ -102,7 +109,7 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
         animalsListView.getItems().addAll(ontology.getAnimals());
-        choiceBoxRodzajPozywienia.getItems().addAll(ontology.getFoodTypes());
+        choiceBoxRodzajPozywienia.getItems().addAll(getRodzajPozywienia());
         choiceBoxGatunek.getItems().addAll(gatunek);
 
     }
@@ -121,7 +128,12 @@ public class MainController implements Initializable {
         String chosenFoodType = (String) choiceBoxRodzajPozywienia.getSelectionModel().getSelectedItem();
         ArrayList<String> animalsByFoodType = new ArrayList<String>();
 
-        if (Objects.equals(chosenFoodType, "miesozernosc")) {
+        if(chosenFoodType == null || chosenFoodType.equals("-") ) {
+            animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Miesozerca");
+            animalsByFoodType.addAll(ontology.getAllIndividualsBelongingToClass("Roslinozerca"));
+            animalsByFoodType.addAll(ontology.getAllIndividualsBelongingToClass("Wszystkozerca"));
+        }
+        else if (Objects.equals(chosenFoodType, "miesozernosc")) {
             animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Miesozerca");
         } else if (Objects.equals(chosenFoodType, "roslinozernosc")) {
             animalsByFoodType = ontology.getAllIndividualsBelongingToClass("Roslinozerca");
