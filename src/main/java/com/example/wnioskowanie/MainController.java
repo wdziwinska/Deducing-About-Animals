@@ -91,7 +91,7 @@ public class MainController implements Initializable {
 
     private ArrayList<String> animalsBySpecies;
 
-    String[] gatunek = {"Ssak", "Ptak", "Płaz", "Gad", "Ryba", "-"};
+    String[] gatunek = {"Ssak", "Ptak", "Plaz", "Gad", "Ryba", "-"};
 
     ArrayList<String> rodzajPozywienia;
 
