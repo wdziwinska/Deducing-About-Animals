@@ -145,7 +145,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Miesozerca"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#polujeNa"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
@@ -153,7 +153,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Zwierze"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/student/ontologies/2022/10/untitled-ontology-8#Miesozerca"/>
     </owl:Class>
     
 

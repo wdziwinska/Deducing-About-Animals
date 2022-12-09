@@ -195,8 +195,8 @@ public class MainController implements Initializable {
         if (infoAboutChosenAnimal.get("polujeNa")!=null){
             polujeNaListView.getItems().addAll(infoAboutChosenAnimal.get("polujeNa"));
         }
-        if (infoAboutChosenAnimal.get("polowanyPrzez")!=null){
-            polowanyPrzezListView.getItems().addAll(infoAboutChosenAnimal.get("polowanyPrzez"));
+        if (infoAboutChosenAnimal.get("jestPolowanyPrzez")!=null){
+            polowanyPrzezListView.getItems().addAll(infoAboutChosenAnimal.get("jestPolowanyPrzez"));
         }
 
 
